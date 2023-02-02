@@ -10,7 +10,7 @@ session_start();
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+
     <title>SimCloud</title>
 
     <link href="vistas/css/bootstrap.min.css" rel="stylesheet">
@@ -33,8 +33,8 @@ session_start();
     <!-- Calendario -->
     <link href="vistas/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
     <!-- Date Range-->
-<!--     <link href="vistas/css/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet">
- -->  
+    <!--     <link href="vistas/css/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet">
+ -->
     <script src="vistas/js/jquery-3.1.1.min.js"></script>
     <script src="vistas/js/bootstrap.min.js"></script>
     <!-- scrol del submenu del menu-->
@@ -44,7 +44,7 @@ session_start();
     <script src="vistas/js/plugins/dataTables/datatables.min.js"></script>
     <script src="vistas/css/plugins/datatables.net-bs/js/dataTables.responsive.min.js"></script>
     <!-- Esto fue lo que tique -->
-<!--     <script src="vistas/css/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+    <!--     <script src="vistas/css/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="vistas/css/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     
     <script src="vistas/css/plugins/datatables.net-bs/js/responsive.bootstrap.min.js"></script> -->
@@ -55,11 +55,11 @@ session_start();
     <script src="vistas/js/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Toast -->
     <script src="vistas/js/plugins/toastr/toastr.min.js"></script>
-   <!-- Sparkline -->
+    <!-- Sparkline -->
     <script src="vistas/js/plugins/sparkline/jquery.sparkline.min.js"></script>
     <!-- Sweet alert -->
     <script src="vistas/js/plugins/sweetalert2/sweetalert2.all.js"></script>
-     <!-- Select2 -->
+    <!-- Select2 -->
     <script src="vistas/js/plugins/chosen/chosen.jquery.js"></script>
     <!-- Data picker -->
     <script src="vistas/js/plugins/datapicker/bootstrap-datepicker.js"></script>
@@ -69,11 +69,11 @@ session_start();
     <!-- <script src="vistas/js/plugins/chartJs/Chart.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
-      <!-- Morris -->
+    <!-- Morris -->
     <script src="vistas/js/plugins/morris/raphael-2.1.0.min.js"></script>
     <script src="vistas/js/plugins/morris/morris.js"></script>
     <!-- Calendario -->
-   <!--  <script src="vistas/js/plugins/calendario/daterangepicker.min.js"></script>
+    <!--  <script src="vistas/js/plugins/calendario/daterangepicker.min.js"></script>
     <script src="vistas/js/plugins/calendario/moment.min.js"></script>
     <link href="vistas/js/plugins/calendario/daterangepicker.css" rel="stylesheet"> -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -86,91 +86,84 @@ session_start();
 
     <?php
 
-    if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){ 
+    if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
 
-?>
-<div id="wrapper">
+    ?>
+        <div id="wrapper">
 
-    <input type="hidden" value="<?php echo $_SESSION['id']; ?>" id="perfilOculto">
+            <input type="hidden" value="<?php echo $_SESSION['id']; ?>" id="perfilOculto">
 
-            
-        <?php
-
-            include "modulos/menu.php";
-
-        ?>
-
-        <div id="page-wrapper" class="gray-bg">
 
             <?php
 
+            include "modulos/menu.php";
+
+            ?>
+
+            <div id="page-wrapper" class="gray-bg">
+
+                <?php
+
                 include "modulos/cabezote.php";
 
-            ?>
-        
-        <div class="wrapper wrapper-content">
-        
-        
-            
-             <?php
+                ?>
 
-                include "modulos/footer.php";
+                <div class="wrapper wrapper-content">
 
-                if(isset($_GET["ruta"])){
 
-                if($_GET["ruta"] == "inicio" ||
-                   $_GET["ruta"] == "usuarios" ||
-                   $_GET["ruta"] == "simscard" ||
-                   $_GET["ruta"] == "perfil" ||
-                   $_GET["ruta"] == "vistacontactos" ||
-                   $_GET["ruta"] == "clientes" ||
-                   $_GET["ruta"] == "cronograma" ||
-                   $_GET["ruta"] == "ventas" ||
-                   $_GET["ruta"] == "crear-venta" ||
-                   $_GET["ruta"] == "editar-ventas" ||
-                   $_GET["ruta"] == "reportes-ventas" ||
-                   $_GET["ruta"] == "reportes-inventario" ||
-                   $_GET["ruta"] == "asignarsimcard" ||
-                   $_GET["ruta"] == "salir"){
 
-                    include "modulos/".$_GET["ruta"].".php";
+                    <?php
 
-                }
-                else
-                {
+                    include "modulos/footer.php";
 
-                    include "modulos/404.php";
+                    if (isset($_GET["ruta"])) {
 
-                }
+                        if (
+                            $_GET["ruta"] == "inicio" ||
+                            $_GET["ruta"] == "usuarios" ||
+                            $_GET["ruta"] == "simscard" ||
+                            $_GET["ruta"] == "perfil" ||
+                            $_GET["ruta"] == "vistacontactos" ||
+                            $_GET["ruta"] == "clientes" ||
+                            $_GET["ruta"] == "cronograma" ||
+                            $_GET["ruta"] == "ventas" ||
+                            $_GET["ruta"] == "crear-venta" ||
+                            $_GET["ruta"] == "editar-ventas" ||
+                            $_GET["ruta"] == "reportes-ventas" ||
+                            $_GET["ruta"] == "reportes-inventario" ||
+                            $_GET["ruta"] == "asignarsimcard" ||
+                            $_GET["ruta"] == "salir"
+                        ) {
 
-                }
-                else
-                {
-                    include "modulos/inicio.php";
-                }
+                            include "modulos/" . $_GET["ruta"] . ".php";
+                        } else {
 
-                
+                            include "modulos/404.php";
+                        }
+                    } else {
+                        include "modulos/inicio.php";
+                    }
 
-            ?>
+
+
+                    ?>
+
+                </div>
 
             </div>
 
         </div>
-        
-    </div>
 
 
-<?php
-    }
-    else
-    {
-       include "modulos/login.php"; 
+    <?php
+    } else {
+        include "modulos/login.php";
     }
 
     ?>
 
-     <!-- Script -->
-   <!-- Mainly scripts -->
+    <!-- Script -->
+    <!-- Mainly scripts -->
 
 
     <script src="vistas/js/primaria/plantilla.js"></script>
@@ -182,4 +175,5 @@ session_start();
     <script src="vistas/js/primaria/graficas.js"></script>
 
 </body>
+
 </html>

@@ -1,287 +1,237 @@
 <?php
 
 require_once "../controladores/simscard.controlador.php";
-require_once "../modelos/simscard.modelo.php";  
- 
-require_once "../controladores/ventas.controlador.php"; 
+require_once "../modelos/simscard.modelo.php";
+
+require_once "../controladores/ventas.controlador.php";
 require_once "../modelos/ventas.modelo.php";
-  
-class AjaxVentas{  
- 
+
+class AjaxVentas
+{
+
 
 	/*=============================================
 	SELECCION DINAMICA PARA LA SIMCARDS Esto se cambio para que cargue las simcards del usuario administrador
-	=============================================*/	
- 
-	public $idSimcards; 
+	=============================================*/
 
-	public function ajaxSimcards(){
- 
+	public $idSimcards;
+
+	public function ajaxSimcards()
+	{
+
 		$item = null;
-		$valor = $this->idSimcards;  
-		$select = "usuario"; 
+		$valor = $this->idSimcards;
+		$select = "usuario";
 		$valor1 = null;
 		$perfil1 = null;
 
-		$respuesta = ControladorSimscard::ctrMostrarSimscardHabilitada($item, $valor,$select,$valor1,$perfil1);
-
-		// echo "<select class='form-control m-b traerPlan chosen-select'  name='nuevoSimcards' required>";
-
-		// echo $cadenaMarcaN = "<option value=''>Seleccione la simcards</option>";
-
+		$respuesta = ControladorSimscard::ctrMostrarSimscardHabilitada($item, $valor, $select, $valor1, $perfil1);
 		echo "<datalist id='browsers' class='scrollable'>";
-		
-		foreach ($respuesta as $key => $value)
-		{
-			if ($value["simcard"] != "") 
-			{
 
-				$cadena = "<option value='".$value['simcard']."'>".$value['simcard']."</option>";
+		foreach ($respuesta as $key => $value) {
+			if ($value["simcard"] != "") {
+				$cadena = "<option value='" . $value['simcard'] . "'>" . $value['simcard'] . "</option>";
 				echo  $cadena;
-
-			}
-			else
-			{
+			} else {
 				$cadena = json_encode($respuesta);
 				echo  $cadena;
 			}
-
-		
 		}
-
-		// echo "</select>";
 		echo "</datalist>";
-
-
 	}
-	
-	
+
+
 	/*=============================================
 	SELECCION DINAMICA PARA LA SIMCARDS DESDE EL IDCOORDINADORDEADMIN
-	=============================================*/	
- 
-	public $idSimcardsDesdeAdmin; 
+	=============================================*/
 
-	public function ajaxSimcardsTraerCoordinadores(){
- 
+	public $idSimcardsDesdeAdmin;
+
+	public function ajaxSimcardsTraerCoordinadores()
+	{
+
 		$item = null;
-		$valor = $this->idSimcardsDesdeAdmin;  
-		$select = "addcoodininve";  
+		$valor = $this->idSimcardsDesdeAdmin;
+		$select = "addcoodininve";
 		$valor1 = null;
 		$perfil1 = null;
 
-		$respuesta = ControladorSimscard::ctrMostrarSimscardHabilitada($item, $valor,$select,$valor1,$perfil1);
-
-		// echo "<select class='form-control m-b traerPlan chosen-select'  name='nuevoSimcards' required>";
-
-		// echo $cadenaMarcaN = "<option value=''>Seleccione la simcards</option>";
+		$respuesta = ControladorSimscard::ctrMostrarSimscardHabilitada($item, $valor, $select, $valor1, $perfil1);
 
 		echo "<datalist id='browsers' class='scrollable'>";
-		
-		foreach ($respuesta as $key => $value)
-		{
-			if ($value["simcard"] != "") 
-			{
 
-				$cadena = "<option value='".$value['simcard']."'>".$value['simcard']."</option>";
+		foreach ($respuesta as $key => $value) {
+			if ($value["simcard"] != "") {
+
+				$cadena = "<option value='" . $value['simcard'] . "'>" . $value['simcard'] . "</option>";
 				echo  $cadena;
-
-			}
-			else
-			{
+			} else {
 				$cadena = json_encode($respuesta);
 				echo  $cadena;
 			}
-
-		
 		}
 
 		// echo "</select>";
 		echo "</datalist>";
-
-
 	}
-	
-	
+
+
 	//Esto se cambio para que cargue las simcards del usuario administrador
-	public $idSimcardsCoordinador; 
+	public $idSimcardsCoordinador;
 
-	public function ajaxSimcardsCoordinador(){
- 
+	public function ajaxSimcardsCoordinador()
+	{
+
 		$item = null;
-		$valor = $this->idSimcardsCoordinador;  
-		$select = "usuario"; 
+		$valor = $this->idSimcardsCoordinador;
+		$select = "usuario";
 		$valor1 = null;
 		$perfil1 = null;
 
-		$respuesta = ControladorSimscard::ctrMostrarSimscardHabilitada($item, $valor,$select,$valor1,$perfil1);
+		$respuesta = ControladorSimscard::ctrMostrarSimscardHabilitada($item, $valor, $select, $valor1, $perfil1);
 
 		// echo "<select class='form-control m-b traerPlan chosen-select'  name='nuevoSimcards' required>";
 
 		// echo $cadenaMarcaN = "<option value=''>Seleccione la simcards</option>";
 
 		echo "<datalist id='browsers' class='scrollable'>";
-		
-		foreach ($respuesta as $key => $value)
-		{
-			if ($value["simcard"] != "") 
-			{
 
-				$cadena = "<option value='".$value['simcard']."'>".$value['simcard']."</option>";
+		foreach ($respuesta as $key => $value) {
+			if ($value["simcard"] != "") {
+
+				$cadena = "<option value='" . $value['simcard'] . "'>" . $value['simcard'] . "</option>";
 				echo  $cadena;
-
-			}
-			else
-			{
+			} else {
 				$cadena = json_encode($respuesta);
 				echo  $cadena;
 			}
-
-		
 		}
 
 		// echo "</select>";
 		echo "</datalist>";
-
 	}
-	
-			/*=============================================
+
+	/*=============================================
 	REVISAR SI LA SIMCARD QUE VA A COLOCAR ESTA EN EL DATALIST
-	=============================================*/	
- 
-	public $validarSimcardRepetida; 
+	=============================================*/
 
-	public function ajaxSimcardsRepetida(){
- 
+	public $validarSimcardRepetida;
+
+	public function ajaxSimcardsRepetida()
+	{
+
 		$item = "simcard";
-		$valor = $this->validarSimcardRepetida;  
+		$valor = $this->validarSimcardRepetida;
 		$select =  null;
 		$valor1 = null;
 		$perfil1 = null;
 
-		$respuesta = ControladorSimscard::ctrMostrarSimscard($item, $valor,$select,$valor1,$perfil1);
+		$respuesta = ControladorSimscard::ctrMostrarSimscard($item, $valor, $select, $valor1, $perfil1);
 
 		echo json_encode($respuesta);
-
-
 	}
-	
-		/*=============================================
+
+	/*=============================================
 	REVISAR SI LA SIMCARD QUE VA A COLOCAR ESTA VENDIDA
-	=============================================*/	
- 
-	public $validarSimcardVendida; 
+	=============================================*/
 
-	public function ajaxSimcardsVendida(){
- 
+	public $validarSimcardVendida;
+
+	public function ajaxSimcardsVendida()
+	{
+
 		$item = "simcard";
-		$valor = $this->validarSimcardVendida;  
+		$valor = $this->validarSimcardVendida;
 		$select =  null;
 		$valor1 = null;
 		$perfil1 = null;
 
-		$respuesta = ControladorSimscard::ctrMostrarSimscardHabilitada($item, $valor,$select,$valor1,$perfil1);
+		$respuesta = ControladorSimscard::ctrMostrarSimscardHabilitada($item, $valor, $select, $valor1, $perfil1);
 
 		echo json_encode($respuesta);
-
-
 	}
-	
-				/*=============================================
-	SELECCION DINAMICA PARA LA SIMCARDS DE COMERCIAL SOLO(VIENE DE VENTAS.JS)
-	=============================================*/	
 
-	public $SimcardUsuarioComercial; 
+	/*=============================================
+	SELECCION DINAMICA PARA LA SIMCARDS DE COMERCIAL SOLO(VIENE DE VENTAS.JS)
+	=============================================*/
+
+	public $SimcardUsuarioComercial;
 	public $SimcardNumeroComercial;
 
-	public function ajaxSimcardComercialComercialSolo(){
- 
+	public function ajaxSimcardComercialComercialSolo()
+	{
+
 		$item = "usuario";
-		$valor = $this->SimcardUsuarioComercial;  
+		$valor = $this->SimcardUsuarioComercial;
 		$destino = "destino";
 		$valordestino = $this->SimcardNumeroComercial;
-	
 
-		$respuesta = ControladorSimscard::ctrMostrarSimscardComerAgenFree($item, $valor,$destino,$valordestino);
+
+		$respuesta = ControladorSimscard::ctrMostrarSimscardComerAgenFree($item, $valor, $destino, $valordestino);
 
 
 		//echo $cadenaMarcaN = "<option value=''>Seleccione la simcards</option>"; 
 		echo "<datalist id='browsers' class='scrollable'>";
-		
-		foreach ($respuesta as $key => $value)
-		{
-			if ($value["simcard"] != "") 
-			{
 
-				$cadena = "<option value='".$value['simcard']."'>".$value['simcard']."</option>";
+		foreach ($respuesta as $key => $value) {
+			if ($value["simcard"] != "") {
+
+				$cadena = "<option value='" . $value['simcard'] . "'>" . $value['simcard'] . "</option>";
 				echo  $cadena;
-
-			}
-			else
-			{
+			} else {
 				$cadena = json_encode($respuesta);
 				echo  $cadena;
 			}
-
-		
 		}
-		
+
 		echo "</datalist>";
-
-
 	}
-	
-	
-		/*=============================================
-	SELECCION DINAMICA PARA LA SIMCARDS DE COMERCIAL(VIENE DE VENTAS.JS)
-	=============================================*/	
 
-	public $SimcardUsuario; 
+
+	/*=============================================
+	SELECCION DINAMICA PARA LA SIMCARDS DE COMERCIAL(VIENE DE VENTAS.JS)
+	=============================================*/
+
+	public $SimcardUsuario;
 	public $SimcardNumero;
 
-	public function ajaxSimcardComercialAgencias(){
- 
+	public function ajaxSimcardComercialAgencias()
+	{
+
 		$item = "usuario";
-		$valor = $this->SimcardUsuario;  
+		$valor = $this->SimcardUsuario;
 		$destino = "destino";
 		$valordestino = $this->SimcardNumero;
-	
 
-		$respuesta = ControladorSimscard::ctrMostrarSimscardComerAgenFree($item, $valor,$destino,$valordestino);
-    
-        echo "<datalist id='browsers' class='scrollable'>";
+
+		$respuesta = ControladorSimscard::ctrMostrarSimscardComerAgenFree($item, $valor, $destino, $valordestino);
+
+		echo "<datalist id='browsers' class='scrollable'>";
 		//echo $cadenaMarcaN = "<option value=''>Seleccione la simcards</option>"; 
-		
-		foreach ($respuesta as $key => $value)
-		{
-			if ($value["simcard"] != "") 
-			{
 
-				$cadena = "<option value='".$value['simcard']."'>".$value['simcard']."</option>";
+		foreach ($respuesta as $key => $value) {
+			if ($value["simcard"] != "") {
+
+				$cadena = "<option value='" . $value['simcard'] . "'>" . $value['simcard'] . "</option>";
 				echo  $cadena;
-
-			}
-			else
-			{
+			} else {
 				$cadena = json_encode($respuesta);
 				echo  $cadena;
 			}
-
-		
 		}
-        echo "</datalist>";
-
+		echo "</datalist>";
 	}
-	
+
 	/*=============================================
 	DESACTIVAR POR MEDIO DE LA FECHA EL CRONOGRAMA
-	=============================================*/	
+	=============================================*/
 
 	public $fechaTraida;
 	public $estadoTraido;
 
- 
-	public function ajaxDesactivarxFecha(){
+
+	public function ajaxDesactivarxFecha()
+	{
 
 		$tabla = "ventas";
 
@@ -292,68 +242,60 @@ class AjaxVentas{
 		$valor2 = $this->fechaTraida;
 
 		$respuesta = ModeloVentas::mdlActualizarVentasPorFecha($tabla, $item1, $valor1, $item2, $valor2);
-
 	}
-	
-	
-			/*=============================================
+
+
+	/*=============================================
 	TRAERNOS LOS TIPOS DE PLANES DE LA AGENCIAS
-	=============================================*/	
- 
+	=============================================*/
+
 	public $idPlanAgencia;
 
-	public function ajaxTraerPlanesAgencias(){
+	public function ajaxTraerPlanesAgencias()
+	{
 
 		$item = null;
-		$valor = $this->idPlanAgencia;  
+		$valor = $this->idPlanAgencia;
 		$select = "simcard";
 		$valor1 = null;
 		$perfil1 = null;
 
-		$respuesta = ControladorSimscard::ctrMostrarSimscard($item, $valor,$select,$valor1,$perfil1);
+		$respuesta = ControladorSimscard::ctrMostrarSimscard($item, $valor, $select, $valor1, $perfil1);
 
 		// $cadenaChekboxes = '<select class="form-control" name="nuevoplan">';
 		// echo $cadenaChekboxes;
 		echo $cadenaChekboxes = "<option value=''>Seleccione el plan</option>";
 		$MensajeErrorTrabajo = '<div class="alert alert-success alert-dismissible" role="alert">Este cliente no tiene plan</div>';
 
-		foreach ($respuesta as $key => $value)
-		{
+		foreach ($respuesta as $key => $value) {
 
-		$array_ph = explode("/",$value["tipoplan"]);
+			$array_ph = explode("/", $value["tipoplan"]);
 
 			foreach ($array_ph as $key) {
-				
-				if ($key == "0") 
-				{	
+
+				if ($key == "0") {
 					echo $MensajeErrorTrabajo;
-				}
-				else if($key != "") 
-				{
-					$cadena = '<option><value="'.$key.'">'.$key.'</option>';
+				} else if ($key != "") {
+					$cadena = '<option><value="' . $key . '">' . $key . '</option>';
 					echo $cadena;
 				}
-				
 			}
 
 			// echo '</select>';
 
-			
+
 		}
-
-		
-
 	}
 
 
 	/*=============================================
 	SELECCION DINAMICA PARA TRAER LOS DESTINOS DE LA SIMCARD
-	=============================================*/	
- 
+	=============================================*/
+
 	// public $idSimcardsDestino;
 
 	// public function ajaxSimcardsDestino(){
- 
+
 	// 	$item = null;
 	// 	$valor = $this->idSimcardsDestino;  
 	// 	$select = "usuario";
@@ -365,7 +307,7 @@ class AjaxVentas{
 	// 	// echo json_encode($respuesta);
 
 	// 	echo $cadenaMarcaN = "<option value=''>Seleccione el destino</option>";
-		
+
 	// 	foreach ($respuesta as $key => $value)
 	// 	{
 	// 		if ($value["destino"] != "") 
@@ -381,7 +323,7 @@ class AjaxVentas{
 	// 			echo  $cadena;
 	// 		}
 
-		
+
 	// 	}
 
 
@@ -390,113 +332,100 @@ class AjaxVentas{
 
 	/*=============================================
 	TRAERNOS LOS TIPOS DE PLANES
-	=============================================*/	
- 
+	=============================================*/
+
 	public $idPlan;
 
-	public function ajaxTraerPlanes(){
+	public function ajaxTraerPlanes()
+	{
 
 		$item = null;
-		$valor = $this->idPlan;  
+		$valor = $this->idPlan;
 		$select = "simcard";
 		$valor1 = null;
 		$perfil1 = null;
 
-		$respuesta = ControladorSimscard::ctrMostrarSimscard($item, $valor,$select,$valor1,$perfil1);
+		$respuesta = ControladorSimscard::ctrMostrarSimscard($item, $valor, $select, $valor1, $perfil1);
 
 		// $cadenaChekboxes = '<select class="form-control" name="nuevoplan">';
 		// echo $cadenaChekboxes;
 		echo $cadenaChekboxes = "<option value=''>Seleccione el destino</option>";
 		$MensajeErrorTrabajo = '<div class="alert alert-success alert-dismissible" role="alert">Este cliente no tiene plan</div>';
 
-		foreach ($respuesta as $key => $value)
-		{
+		foreach ($respuesta as $key => $value) {
 
-		$array_ph = explode("/",$value["destino"]);
+			$array_ph = explode("/", $value["destino"]);
 
-		if ($array_ph) {
-			foreach ($array_ph as $key) {
-				
-				if ($key == "0") 
-				{	
-					echo $MensajeErrorTrabajo;
+			if ($array_ph) {
+				foreach ($array_ph as $key) {
+
+					if ($key == "0") {
+						echo $MensajeErrorTrabajo;
+					} else if ($key != "") {
+						$cadena = '<option><value="' . $key . '">' . $key . '</option>';
+						echo $cadena;
+					}
 				}
-				else if($key != "") 
-				{
-					$cadena = '<option><value="'.$key.'">'.$key.'</option>';
-					echo $cadena;
-				}
-				
+			} else {
+				$cadena = '<option><value="' . $value["destino"] . '">' . $value["destino"] . '</option>';
+				echo $cadena;
 			}
-		}else{
-			$cadena = '<option><value="'.$value["destino"].'">'.$value["destino"].'</option>';
-					echo $cadena;
-		}
 
-			
+
 
 			// echo '</select>';
 
-			
+
 		}
-
-		
-
 	}
 
 
 	/*=============================================
 	TRAERNOS LOS TIPOS DE PLANES CUANDDO EDITEMOS LA VENTA
-	=============================================*/	
- 
+	=============================================*/
+
 	public $idPlanEditar;
 
-	public function ajaxTraerInstrumentosEditar(){
- 
+	public function ajaxTraerInstrumentosEditar()
+	{
+
 		$item = null;
-		$valor = $this->idPlanEditar;  
+		$valor = $this->idPlanEditar;
 		$select = "simcard";
 		$valor1 = null;
 		$perfil1 = null;
 
-		$respuesta = ControladorSimscard::ctrMostrarSimscard($item, $valor,$select,$valor1,$perfil1);
+		$respuesta = ControladorSimscard::ctrMostrarSimscard($item, $valor, $select, $valor1, $perfil1);
 
 		// $cadenaChekboxes = '<select class="form-control m-b" name="editarPlan">';
 		// echo $cadenaChekboxes;
 		echo $cadenaChekboxes = "<option value=''>Seleccione el plan</option>";
 		$MensajeErrorTrabajo = '<div class="alert alert-success alert-dismissible" role="alert">Este cliente no tiene plan</div>';
 
-		foreach ($respuesta as $key => $value)
-		{
+		foreach ($respuesta as $key => $value) {
 
-		$array_ph = explode("/",$value["tipoplan"]);
+			$array_ph = explode("/", $value["tipoplan"]);
 
 			foreach ($array_ph as $key) {
-				
-				if ($key == "0") 
-				{	
+
+				if ($key == "0") {
 					// echo json_encode($key);
 					echo $MensajeErrorTrabajo;
-				}
-				else if($key != "") 
-				{
-					$cadena = '<option><value="'.$key.'">'.$key.'</option>';
+				} else if ($key != "") {
+					$cadena = '<option><value="' . $key . '">' . $key . '</option>';
 					echo $cadena;
 				}
 				// echo $key;
-				
+
 			}
 			// echo '</select>';
 		}
-
-		
-
 	}
 
 
 	/*=============================================
 	ACTIVAR SIMCARD DE LA TABLA CORNOGRAMA
-	=============================================*/	
+	=============================================*/
 
 	public $idSimcard;
 	public $estadoSimcard;
@@ -507,8 +436,9 @@ class AjaxVentas{
 	public $valorCorreo;
 	public $correoCorreo;
 
- 
-	public function ajaxAtivarSim(){
+
+	public function ajaxAtivarSim()
+	{
 
 		$tabla = "ventas";
 
@@ -517,96 +447,89 @@ class AjaxVentas{
 
 		$item2 = "id";
 		$valor2 = $this->idSimcard;
-		
+
 		$destinoCorreo = $this->destinoCorreo;
-	 	$clienteCorreo = $this->clienteCorreo;
-	 	$lineaCorreo = $this->lineaCorreo;
-	 	$fechallegadaCorreo = $this->fechallegadaCorreo;
-	 	$valorCorreo = $this->valorCorreo;
-	 	$correoCorreo = $this->correoCorreo;
-		
-			$correo = array(
-				"cliente"=>$clienteCorreo,
-				"email"=>$correoCorreo,
-				"fechallegada"=>$fechallegadaCorreo,
-				"lineaexterior"=>$lineaCorreo,
-				"valor"=>$valorCorreo,
-				"destino"=>$destinoCorreo
+		$clienteCorreo = $this->clienteCorreo;
+		$lineaCorreo = $this->lineaCorreo;
+		$fechallegadaCorreo = $this->fechallegadaCorreo;
+		$valorCorreo = $this->valorCorreo;
+		$correoCorreo = $this->correoCorreo;
+
+		$correo = array(
+			"cliente" => $clienteCorreo,
+			"email" => $correoCorreo,
+			"fechallegada" => $fechallegadaCorreo,
+			"lineaexterior" => $lineaCorreo,
+			"valor" => $valorCorreo,
+			"destino" => $destinoCorreo
 		);
 
 		$respuesta2 = ModeloVentas::mdlCrearCorreoCronograma($correo);
 
 		$respuesta = ModeloVentas::mdlActualizarVentas($tabla, $item1, $valor1, $item2, $valor2);
-
 	}
 
 	/*=============================================
 	AGREGAR LINEA DEL NUMERO EN EL EXTERIOR
-	=============================================*/	
- 
+	=============================================*/
+
 	public $idSimcard2;
 
-	public function ajaxTraerLinea(){
+	public function ajaxTraerLinea()
+	{
 
 		$item = "id";
 		$valor = $this->idSimcard2;
 		$item1 = null;
 		$valor3 = null;
 
-		$respuesta = ControladorVentas::ctrMostrarVentas($item, $valor,$item1,$valor3);
+		$respuesta = ControladorVentas::ctrMostrarVentas($item, $valor, $item1, $valor3);
 
 		echo json_encode($respuesta);
-
 	}
-
-
 }
 
 /*=============================================
 MIRAR QUE LA SIMCARD NO ESTE REPETIDA DE LA DATALIST
 =============================================*/
-if(isset($_POST["validarSimcardRepetida"])){
+if (isset($_POST["validarSimcardRepetida"])) {
 
 	$repetidaSimcards = new AjaxVentas();
-	$repetidaSimcards -> validarSimcardRepetida = $_POST["validarSimcardRepetida"];
-	$repetidaSimcards -> ajaxSimcardsRepetida();
-
+	$repetidaSimcards->validarSimcardRepetida = $_POST["validarSimcardRepetida"];
+	$repetidaSimcards->ajaxSimcardsRepetida();
 }
 
 
 //SELECCIONAR EQUIPO DINAMICA DE CREAR MANTENIMIENTO
 
-if(isset($_POST["idSimcards"])){
+if (isset($_POST["idSimcards"])) {
 
-$traerSimcards = new AjaxVentas();
-$traerSimcards -> idSimcards = $_POST["idSimcards"];
-$traerSimcards ->ajaxSimcards();
-
+	$traerSimcards = new AjaxVentas();
+	$traerSimcards->idSimcards = $_POST["idSimcards"];
+	$traerSimcards->ajaxSimcards();
 }
 
 
 /*=============================================
 MIRAR QUE LA SIMCARD ESTA VENDIDA
 =============================================*/
-if(isset($_POST["validarSimcardVendida"])){
+if (isset($_POST["validarSimcardVendida"])) {
 
 	$vendidasSimcards = new AjaxVentas();
-	$vendidasSimcards -> validarSimcardVendida = $_POST["validarSimcardVendida"];
-	$vendidasSimcards -> ajaxSimcardsVendida();
-
+	$vendidasSimcards->validarSimcardVendida = $_POST["validarSimcardVendida"];
+	$vendidasSimcards->ajaxSimcardsVendida();
 }
 
 
 /*=============================================
 DESACTIVAR POR MEDIO DE LA FECHA EL CRONOGRAMA
 =============================================*/
-if(isset($_POST["fechaTraida"])){
+if (isset($_POST["fechaTraida"])) {
 
 	$traerFechaSimcard = new AjaxVentas();
-	$traerFechaSimcard -> fechaTraida = $_POST["fechaTraida"];
-	$traerFechaSimcard -> estadoTraido = $_POST["estadoTraido"];
-	$traerFechaSimcard -> ajaxDesactivarxFecha();
-
+	$traerFechaSimcard->fechaTraida = $_POST["fechaTraida"];
+	$traerFechaSimcard->estadoTraido = $_POST["estadoTraido"];
+	$traerFechaSimcard->ajaxDesactivarxFecha();
 }
 
 //SELECCION DINAMICA PARA TRAER LOS DESTINOS DE LA SIMCARD
@@ -622,69 +545,63 @@ if(isset($_POST["fechaTraida"])){
 
 ////TRAER PLANES A LA VENTA DE AGENCIAS(VENTA.JS)
 
-if(isset($_POST["idPlanAgencia"])){
+if (isset($_POST["idPlanAgencia"])) {
 
-$traerplanesAgencias = new AjaxVentas();
-$traerplanesAgencias -> idPlanAgencia = $_POST["idPlanAgencia"];
-$traerplanesAgencias ->ajaxTraerPlanesAgencias();
-
+	$traerplanesAgencias = new AjaxVentas();
+	$traerplanesAgencias->idPlanAgencia = $_POST["idPlanAgencia"];
+	$traerplanesAgencias->ajaxTraerPlanesAgencias();
 }
 
 /*=============================================
 TRAER SIMCARD DE USUARIO O COMERCIAL
-=============================================*/	
+=============================================*/
 
-if(isset($_POST["SimcardNumero"])){
+if (isset($_POST["SimcardNumero"])) {
 
 	$SimcardNumero = new AjaxVentas();
-	$SimcardNumero -> SimcardNumero = $_POST["SimcardNumero"];
-	$SimcardNumero -> SimcardUsuario = $_POST["SimcardUsuario"];
-	$SimcardNumero -> ajaxSimcardComercialAgencias();
-
+	$SimcardNumero->SimcardNumero = $_POST["SimcardNumero"];
+	$SimcardNumero->SimcardUsuario = $_POST["SimcardUsuario"];
+	$SimcardNumero->ajaxSimcardComercialAgencias();
 }
 
 /*=============================================
 TRAER SIMCARD DE COMERCIAL SOLO
-=============================================*/	
+=============================================*/
 
-if(isset($_POST["SimcardNumeroComercial"])){
+if (isset($_POST["SimcardNumeroComercial"])) {
 
 	$SimcardNumeroSolo = new AjaxVentas();
-	$SimcardNumeroSolo -> SimcardNumeroComercial = $_POST["SimcardNumeroComercial"];
-	$SimcardNumeroSolo -> SimcardUsuarioComercial = $_POST["SimcardUsuarioComercial"];
-	$SimcardNumeroSolo -> ajaxSimcardComercialComercialSolo();
-
+	$SimcardNumeroSolo->SimcardNumeroComercial = $_POST["SimcardNumeroComercial"];
+	$SimcardNumeroSolo->SimcardUsuarioComercial = $_POST["SimcardUsuarioComercial"];
+	$SimcardNumeroSolo->ajaxSimcardComercialComercialSolo();
 }
 
 
 //AGREGAR LINEA DEL NUMERO EN EL EXTERIOR
 
-if(isset($_POST["idSimcard2"])){
+if (isset($_POST["idSimcard2"])) {
 
-$traerLineaExterior = new AjaxVentas();
-$traerLineaExterior -> idSimcard2 = $_POST["idSimcard2"];
-$traerLineaExterior ->ajaxTraerLinea();
-
+	$traerLineaExterior = new AjaxVentas();
+	$traerLineaExterior->idSimcard2 = $_POST["idSimcard2"];
+	$traerLineaExterior->ajaxTraerLinea();
 }
 
 //SELECCIONAR EQUIPO DINAMICA DE CREAR MANTENIMIENTO
 
-if(isset($_POST["idPlan"])){
+if (isset($_POST["idPlan"])) {
 
-$traerplanes = new AjaxVentas();
-$traerplanes -> idPlan = $_POST["idPlan"];
-$traerplanes ->ajaxTraerPlanes();
-
+	$traerplanes = new AjaxVentas();
+	$traerplanes->idPlan = $_POST["idPlan"];
+	$traerplanes->ajaxTraerPlanes();
 }
 
 //TRAERNOS LOS TIPOS DE PLANES CUANDDO EDITEMOS LA VENTA
 
-if(isset($_POST["idPlanEditar"])){
+if (isset($_POST["idPlanEditar"])) {
 
-$traerPlanesEditar = new AjaxVentas();
-$traerPlanesEditar -> idPlanEditar = $_POST["idPlanEditar"];
-$traerPlanesEditar ->ajaxTraerInstrumentosEditar();
-
+	$traerPlanesEditar = new AjaxVentas();
+	$traerPlanesEditar->idPlanEditar = $_POST["idPlanEditar"];
+	$traerPlanesEditar->ajaxTraerInstrumentosEditar();
 }
 
 
@@ -701,37 +618,33 @@ $traerPlanesEditar ->ajaxTraerInstrumentosEditar();
 
 /*=============================================
 ACTIVAR USUARIO
-=============================================*/	
+=============================================*/
 
-if(isset($_POST["idSimcard"])){
+if (isset($_POST["idSimcard"])) {
 
 	$activarSimcard = new AjaxVentas();
-	$activarSimcard -> idSimcard = $_POST["idSimcard"];
-	$activarSimcard -> estadoSimcard = $_POST["estadoSimcard"];
-	$activarSimcard -> destinoCorreo = $_POST["destinoCorreo"];
-	$activarSimcard -> clienteCorreo = $_POST["clienteCorreo"];
-	$activarSimcard -> lineaCorreo = $_POST["lineaCorreo"];
-	$activarSimcard -> fechallegadaCorreo = $_POST["fechallegadaCorreo"];
-	$activarSimcard -> valorCorreo = $_POST["valorCorreo"];
-	$activarSimcard -> correoCorreo = $_POST["correoCorreo"];
-	$activarSimcard -> ajaxAtivarSim();
-
+	$activarSimcard->idSimcard = $_POST["idSimcard"];
+	$activarSimcard->estadoSimcard = $_POST["estadoSimcard"];
+	$activarSimcard->destinoCorreo = $_POST["destinoCorreo"];
+	$activarSimcard->clienteCorreo = $_POST["clienteCorreo"];
+	$activarSimcard->lineaCorreo = $_POST["lineaCorreo"];
+	$activarSimcard->fechallegadaCorreo = $_POST["fechallegadaCorreo"];
+	$activarSimcard->valorCorreo = $_POST["valorCorreo"];
+	$activarSimcard->correoCorreo = $_POST["correoCorreo"];
+	$activarSimcard->ajaxAtivarSim();
 }
 
-if(isset($_POST["idSimcardsCoordinador"])){
+if (isset($_POST["idSimcardsCoordinador"])) {
 
-$traerSimcardCoordinador = new AjaxVentas();
-$traerSimcardCoordinador -> idSimcardsCoordinador = $_POST["idSimcardsCoordinador"];
-$traerSimcardCoordinador ->ajaxSimcardsCoordinador();
-
+	$traerSimcardCoordinador = new AjaxVentas();
+	$traerSimcardCoordinador->idSimcardsCoordinador = $_POST["idSimcardsCoordinador"];
+	$traerSimcardCoordinador->ajaxSimcardsCoordinador();
 }
 
 
-if(isset($_POST["idSimcardsDesdeAdmin"])){
+if (isset($_POST["idSimcardsDesdeAdmin"])) {
 
-$traerSimcardsDesdeAdmin = new AjaxVentas();
-$traerSimcardsDesdeAdmin -> idSimcardsDesdeAdmin = $_POST["idSimcardsDesdeAdmin"];
-$traerSimcardsDesdeAdmin ->ajaxSimcardsTraerCoordinadores();
-
+	$traerSimcardsDesdeAdmin = new AjaxVentas();
+	$traerSimcardsDesdeAdmin->idSimcardsDesdeAdmin = $_POST["idSimcardsDesdeAdmin"];
+	$traerSimcardsDesdeAdmin->ajaxSimcardsTraerCoordinadores();
 }
-

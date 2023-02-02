@@ -1,66 +1,66 @@
 // Cargar los datos de form dinamica
 
- // $('.tablaCronograma').DataTable( {
- //        "ajax": "ajax/datatable-cronograma.ajax.php", 
- //        "deferRender": true, 
- //  "retrieve": true,
- //  "processing": true,
- //   "language": {
+// $('.tablaCronograma').DataTable( {
+//        "ajax": "ajax/datatable-cronograma.ajax.php", 
+//        "deferRender": true, 
+//  "retrieve": true,
+//  "processing": true,
+//   "language": {
 
- //      "sProcessing":     "Procesando...",
- //      "sLengthMenu":     "Mostrar _MENU_ registros",
- //      "sZeroRecords":    "No se encontraron resultados",
- //      "sEmptyTable":     "Ningún dato disponible en esta tabla",
- //      "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
- //      "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
- //      "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
- //      "sInfoPostFix":    "",
- //      "sSearch":         "Buscar:",
- //      "sUrl":            "",
- //      "sInfoThousands":  ",",
- //      "sLoadingRecords": "Cargando...",
- //      "oPaginate": {
- //      "sFirst":    "Primero",
- //      "sLast":     "Último",
- //      "sNext":     "Siguiente",
- //      "sPrevious": "Anterior"
- //      },
- //      "oAria": {
- //        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
- //        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
- //      }
+//      "sProcessing":     "Procesando...",
+//      "sLengthMenu":     "Mostrar _MENU_ registros",
+//      "sZeroRecords":    "No se encontraron resultados",
+//      "sEmptyTable":     "Ningún dato disponible en esta tabla",
+//      "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+//      "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
+//      "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+//      "sInfoPostFix":    "",
+//      "sSearch":         "Buscar:",
+//      "sUrl":            "",
+//      "sInfoThousands":  ",",
+//      "sLoadingRecords": "Cargando...",
+//      "oPaginate": {
+//      "sFirst":    "Primero",
+//      "sLast":     "Último",
+//      "sNext":     "Siguiente",
+//      "sPrevious": "Anterior"
+//      },
+//      "oAria": {
+//        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+//        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+//      }
 
- //    }
- //    });
+//    }
+//    });
 
 
- $(".tablaCronograma").DataTable({
+$(".tablaCronograma").DataTable({
 
 
 
   "language": {
 
-    "sProcessing":     "Procesando...",
-    "sLengthMenu":     "Mostrar _MENU_ registros",
-    "sZeroRecords":    "No se encontraron resultados",
-    "sEmptyTable":     "Ningún dato disponible en esta tabla",
-    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
-    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
-    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-    "sInfoPostFix":    "",
-    "sSearch":         "Buscar:",
-    "sUrl":            "",
-    "sInfoThousands":  ",",
+    "sProcessing": "Procesando...",
+    "sLengthMenu": "Mostrar _MENU_ registros",
+    "sZeroRecords": "No se encontraron resultados",
+    "sEmptyTable": "Ningún dato disponible en esta tabla",
+    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0",
+    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+    "sInfoPostFix": "",
+    "sSearch": "Buscar:",
+    "sUrl": "",
+    "sInfoThousands": ",",
     "sLoadingRecords": "Cargando...",
     "oPaginate": {
-    "sFirst":    "Primero",
-    "sLast":     "Último",
-    "sNext":     "Siguiente",
+      "sFirst": "Primero",
+      "sLast": "Último",
+      "sNext": "Siguiente",
 
-    "sPrevious": "Anterior"
+      "sPrevious": "Anterior"
     },
     "oAria": {
-      "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+      "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
       "sSortDescending": ": Activar para ordenar la columna de manera descendente"
     }
 
@@ -72,7 +72,7 @@
 /*=============================================
 ACTIVAR USUARIO
 =============================================*/
-$(document).on("click", ".btnActivarSimcard", function(){
+$(document).on("click", ".btnActivarSimcard", function () {
 
   var idSimcard = $(this).attr("idSimcard");
   var estadoSimcard = $(this).attr("estadoSimcard");
@@ -81,19 +81,19 @@ $(document).on("click", ".btnActivarSimcard", function(){
   var destino = $(this).attr("destino");
   var fechallegada = $(this).attr("fechallegada");
   var valor = $(this).attr("valor");
-  var correo =  $(this).attr("correo");
-  
-//   console.log(idSimcard);
-//   console.log(estadoSimcard);
-//   console.log(cliente);
-//   console.log(linea);
-//   console.log(destino);
-//   console.log(fechallegada);
-//   console.log(valor);
-//   console.log(correo);
+  var correo = $(this).attr("correo");
+
+  //   console.log(idSimcard);
+  //   console.log(estadoSimcard);
+  //   console.log(cliente);
+  //   console.log(linea);
+  //   console.log(destino);
+  //   console.log(fechallegada);
+  //   console.log(valor);
+  //   console.log(correo);
 
 
- 
+
   var datos = new FormData();
   datos.append("idSimcard", idSimcard);
   datos.append("estadoSimcard", estadoSimcard);
@@ -104,175 +104,175 @@ $(document).on("click", ".btnActivarSimcard", function(){
   datos.append("valorCorreo", valor);
   datos.append("correoCorreo", correo);
 
-    $.ajax({
+  $.ajax({
 
-    url:"ajax/ventas.ajax.php",
+    url: "ajax/ventas.ajax.php",
     method: "POST",
     data: datos,
     cache: false,
-      contentType: false,
-      processData: false,
-      success: function(respuesta){
+    contentType: false,
+    processData: false,
+    success: function (respuesta) {
 
-        if(window.matchMedia("(max-width:767px)").matches){
-    
-          swal({
-            title: "la simcard ha sido activada ha sido actualizado",
-            type: "success",
-            confirmButtonText: "¡Cerrar!"
-          }).then(function(result) {
-            
-              if (result.value) {
+      if (window.matchMedia("(max-width:767px)").matches) {
 
-              window.location = "cronograma";
+        swal({
+          title: "la simcard ha sido activada ha sido actualizado",
+          type: "success",
+          confirmButtonText: "¡Cerrar!"
+        }).then(function (result) {
 
-            }
+          if (result.value) {
 
-          });
+            window.location = "cronograma";
+
+          }
+
+        });
 
 
-    }
       }
-
-    })
-
-    if(estadoSimcard == 'desactivado'){
-
-      $(this).removeClass('btn-success');
-      $(this).addClass('btn-danger');
-      $(this).html('Desactivado');
-      $(this).attr('estadoSimcard','activado');
-
-    }else{
-
-      $(this).addClass('btn-success');
-      $(this).removeClass('btn-danger');
-      $(this).html('Activado');
-      $(this).attr('estadoSimcard','desactivado');
- 
     }
+
+  })
+
+  if (estadoSimcard == 'desactivado') {
+
+    $(this).removeClass('btn-success');
+    $(this).addClass('btn-danger');
+    $(this).html('Desactivado');
+    $(this).attr('estadoSimcard', 'activado');
+
+  } else {
+
+    $(this).addClass('btn-success');
+    $(this).removeClass('btn-danger');
+    $(this).html('Activado');
+    $(this).attr('estadoSimcard', 'desactivado');
+
+  }
 
 })
- //Local storage de la fecha del servicio
- if (localStorage.getItem("capturarRango25") != null) {
+//Local storage de la fecha del servicio
+if (localStorage.getItem("capturarRango25") != null) {
 
-  $("#reportrangeLLegada span").html(localStorage.getItem("capturarRango25")); 
+  $("#reportrangeLLegada span").html(localStorage.getItem("capturarRango25"));
 
-}else{    
- 
+} else {
+
   $("#reportrangeLLegada span").html(' Fecha del servicio');
-} 
+}
 
-$(function() {
+$(function () {
 
-    // var start = moment();
-    // var end = moment();
+  // var start = moment();
+  // var end = moment();
 
-    function cb(start, end) {
-        $('#reportrangeLLegada span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+  function cb(start, end) {
+    $('#reportrangeLLegada span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
 
-         var fechaInicial = start.format('YYYY-MM-DD');
+    var fechaInicial = start.format('YYYY-MM-DD');
 
-         var fechaFinal = end.format('YYYY-MM-DD');
+    var fechaFinal = end.format('YYYY-MM-DD');
 
-         var capturarRango25 = $("#reportrangeLLegada span").html();
+    var capturarRango25 = $("#reportrangeLLegada span").html();
 
-         localStorage.setItem("capturarRango25", capturarRango25);
+    localStorage.setItem("capturarRango25", capturarRango25);
 
-        window.location = "index.php?ruta=cronograma&fechaInicial="+fechaInicial+"&fechaFinal="+fechaFinal;
-    }
-    $('#reportrangeLLegada').daterangepicker({
-      "locale": {
-        "applyLabel": "Aplicar",
-        "cancelLabel": "Cancelar",
-        "fromLabel": "Desde",
-        "toLabel": "a",
-        "customRangeLabel": "Perzonalizado",
-        "daysOfWeek": [
-            "Do",
-            "Lu",
-            "Ma",
-            "Mi",
-            "Ju",
-            "Vi",
-            "Sa"
-        ],
-        "monthNames": [
-            "Enero",
-            "Febrero",
-            "Marzo",
-            "Abril",
-            "Mayo",
-            "Junio",
-            "Julio",
-            "Agosto",
-            "Septiembre",
-            "Octubre",
-            "Noviembre",
-            "Diciembre"
-        ],
-        "firstDay": 1
+    window.location = "index.php?ruta=cronograma&fechaInicial=" + fechaInicial + "&fechaFinal=" + fechaFinal;
+  }
+  $('#reportrangeLLegada').daterangepicker({
+    "locale": {
+      "applyLabel": "Aplicar",
+      "cancelLabel": "Cancelar",
+      "fromLabel": "Desde",
+      "toLabel": "a",
+      "customRangeLabel": "Perzonalizado",
+      "daysOfWeek": [
+        "Do",
+        "Lu",
+        "Ma",
+        "Mi",
+        "Ju",
+        "Vi",
+        "Sa"
+      ],
+      "monthNames": [
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre"
+      ],
+      "firstDay": 1
     },
-        startDate: moment().subtract(29, 'days'),
-        endDate: moment(),
-        ranges: {
-           'Hoy': [moment(), moment()],
-           'Ayer': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-           'Últimos 7 días': [moment().subtract(6, 'days'), moment()],
-           'Últimos 30 días': [moment().subtract(29, 'days'), moment()],
-           'Este mes': [moment().startOf('month'), moment().endOf('month')],
-           'Último mes': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-        }
-    }, cb);
+    startDate: moment().subtract(29, 'days'),
+    endDate: moment(),
+    ranges: {
+      'Hoy': [moment(), moment()],
+      'Ayer': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+      'Últimos 7 días': [moment().subtract(6, 'days'), moment()],
+      'Últimos 30 días': [moment().subtract(29, 'days'), moment()],
+      'Este mes': [moment().startOf('month'), moment().endOf('month')],
+      'Último mes': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    }
+  }, cb);
 
-    cb(start, end);
+  // cb(start, end);
 
 });
 
 
- /*=============================================
+/*=============================================
 CANCELAR RANGO DE FECHAS
 =============================================*/
-$(".cancelarFechaCronograma").on("click", function(){
+$(".cancelarFechaCronograma").on("click", function () {
 
   localStorage.removeItem("capturarRango25");
   localStorage.clear();
-  
+
 })
 
 
- /*=============================================
+/*=============================================
 AGREGAR LINEA DEL NUMERO EN EL EXTERIOR
 =============================================*/
 
-$(".tablaCronograma").on("click", ".btnAgregarLinea", function(){
+$(".tablaCronograma").on("click", ".btnAgregarLinea", function () {
 
   var idSimcard2 = $(this).attr("idSimcard2");
 
   // console.log("idSimcard2",idSimcard2);
 
-   var datos = new FormData();
-    datos.append("idSimcard2", idSimcard2); 
+  var datos = new FormData();
+  datos.append("idSimcard2", idSimcard2);
 
-    $.ajax({
+  $.ajax({
 
-      url:"ajax/ventas.ajax.php",
-      method: "POST",
-      data: datos,
-      cache: false,
-      contentType: false,
-      processData: false,
-      dataType:"json",
-      success:function(respuesta){
+    url: "ajax/ventas.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType: "json",
+    success: function (respuesta) {
 
-       $("#NuevaLineaId").val(respuesta["id"]); 
-       $("#nuevoLinea").val(respuesta["lineaexterior"]);
- 
+      $("#NuevaLineaId").val(respuesta["id"]);
+      $("#nuevoLinea").val(respuesta["lineaexterior"]);
+
     }
 
-    })
+  })
 
- })
+})
 
 
 
@@ -280,46 +280,46 @@ $(".tablaCronograma").on("click", ".btnAgregarLinea", function(){
 
 
 
-$(document).on("click", ".traerFecha", function(){
+$(document).on("click", ".traerFecha", function () {
 
-   var fechaTraida = $(this).val();
-   var estadoTraido = $(this).attr("estadoDesactivado"); 
+  var fechaTraida = $(this).val();
+  var estadoTraido = $(this).attr("estadoDesactivado");
 
-   // console.log(fechaTraida);
-   // console.log(estadoTraido);
+  // console.log(fechaTraida);
+  // console.log(estadoTraido);
 
   var datos = new FormData();
   datos.append("fechaTraida", fechaTraida);
   datos.append("estadoTraido", estadoTraido);
 
-   $.ajax({
+  $.ajax({
 
-    url:"ajax/ventas.ajax.php",
+    url: "ajax/ventas.ajax.php",
     method: "POST",
     data: datos,
     cache: false,
-      contentType: false,
-      processData: false,
-      success: function(respuesta){
-    
-           swal({
-            title: "Se han desactivado las ventas del día de hoy",
-            type: "success",
-            confirmButtonText: "¡Cerrar!"
-          }).then(function(result) {
-            
-              if (result.value) {
+    contentType: false,
+    processData: false,
+    success: function (respuesta) {
 
-              window.location = "cronograma";
+      swal({
+        title: "Se han desactivado las ventas del día de hoy",
+        type: "success",
+        confirmButtonText: "¡Cerrar!"
+      }).then(function (result) {
 
-            }
+        if (result.value) {
 
-          });
+          window.location = "cronograma";
+
+        }
+
+      });
 
 
-      }
+    }
 
-    })
+  })
 
 
 
